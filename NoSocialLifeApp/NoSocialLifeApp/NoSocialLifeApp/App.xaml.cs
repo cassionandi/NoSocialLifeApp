@@ -15,14 +15,14 @@ namespace NoSocialLifeApp
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new LoginPage());
-
+            MainPage = new NavigationPage(new LoginPage());
+            /*
             MainPage = new NavigationPage(new BuscaPage()
             {
                 BindingContext = new BuscaViewModel()
             }
             );
-            
+            */
             /*
             MainPage = new NavigationPage(new DetalhePage()
             {

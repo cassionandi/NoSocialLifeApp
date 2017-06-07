@@ -32,7 +32,7 @@ namespace NoSocialLifeApp
             return xml;
         }
 
-        public static async Task<RootLista> GetItems()
+        public static async Task<List<ItemLista>> GetItems()
         {
 
             string HOT_RPG_URL = "hot?type=rpg";
@@ -53,10 +53,10 @@ namespace NoSocialLifeApp
                 }
             }
 
-            return lista;
+            return lista.Lista;
         }
 
-        public static async Task<RootLista> GetItems(string query)
+        public static async Task<List<ItemLista>> GetItems(string query)
         {
 
             string SEARCH_RPG_URL = $"search?type=rpgitem&query={query}";
@@ -77,7 +77,7 @@ namespace NoSocialLifeApp
                 }
             }
 
-            return lista;
+            return lista.Lista;
 
         }
 
