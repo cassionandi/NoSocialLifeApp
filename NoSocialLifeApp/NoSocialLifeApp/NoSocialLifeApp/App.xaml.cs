@@ -1,4 +1,5 @@
-﻿using NoSocialLifeApp.ViewModels;
+﻿using NoSocialLifeApp.Models;
+using NoSocialLifeApp.ViewModels;
 using NoSocialLifeApp.Views;
 using System;
 using System.Collections.Generic;
@@ -27,11 +28,18 @@ namespace NoSocialLifeApp
             MainPage = new NavigationPage(new DetalhePage()
             {
                 BindingContext = new DetalheViewModel(
-                     new Item()
+                     new ItemLista()
                      {
-                         Titulo = "Mythic Game Master Emulator",
-                         Publicacao = "2007",
-                         Imagem = "https://cf.geekdo-images.com/images/pic2823310_t.jpg"
+                         Id = "207609",
+                         Nome = new ItemNome()
+                         {
+                             Value = "Romance Trilogy"
+                         },
+                         AnoPublicacao = new ItemAnoPublicacao()
+                         {
+                             Value = "2016"
+                         }
+                         //Imagem = "https://cf.geekdo-images.com/images/pic2823310_t.jpg"
                      }
                  )
             });

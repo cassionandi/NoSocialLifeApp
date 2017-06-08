@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<base:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:base="clr-namespace:NoSocialLifeApp.Views;assembly=NoSocialLifeApp.Views"
              x:Class="NoSocialLifeApp.Views.DetalhePage">
-    <ContentPage.Content>
-        <StackLayout>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Detalhes" Command="{Binding ShowMaisCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+        <StackLayout VerticalOptions="Start" Padding="4">
+
+            <WebView VerticalOptions="FillAndExpand">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="{Binding ItemSelecionado.Descricao}"/>
+                </WebView.Source>
+            </WebView>
+
+
+            <Image Source="{Binding ItemSelecionado.Imagem}" HorizontalOptions="Center"/>
+
+            
+            
             <Label Text="{Binding ItemSelecionado.Descricao}" />
-            <Label Text="{Binding ItemSelecionado.AnoPublicacao}" />
-            <Image Source="{Binding ItemSelecionado.Imagem}"></Image>
+
+            
+
+            <!--<Label Text="{Binding ItemSelecionado.AnoPublicacao.Value}" />-->
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </ScrollView>
+</base:BasePage>

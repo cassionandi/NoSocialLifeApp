@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace NoSocialLifeApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetalhePage
+    public partial class MaisPage : ContentPage
     {
-        public DetalhePage()
+        public MaisPage()
         {
             InitializeComponent();
         }

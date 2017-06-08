@@ -93,6 +93,7 @@ namespace NoSocialLifeApp
                 try
                 {
                     resultado = (RootDetalhe)new XmlSerializer(typeof(RootDetalhe)).Deserialize(reader);
+                    resultado.Item.Descricao = System.Net.WebUtility.HtmlDecode(resultado.Item.Descricao);
                 }
                 catch (InvalidOperationException)
                 {

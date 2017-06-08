@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace NoSocialLifeApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BuscaPage : ContentPage
+    public partial class BuscaPage
     {
 
         private BuscaViewModel ViewModel => BindingContext as BuscaViewModel;

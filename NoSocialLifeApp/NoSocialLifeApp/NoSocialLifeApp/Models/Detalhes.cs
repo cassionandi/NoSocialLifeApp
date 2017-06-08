@@ -68,7 +68,7 @@ namespace NoSocialLifeApp.Models
         [XmlElement(ElementName = "image")]
         public string Imagem { get; set; }
         [XmlElement(ElementName = "name")]
-        public List<DetalheNome> Nome { get; set; }
+        public List<DetalheNome> Name { get; set; }
         [XmlElement(ElementName = "link")]
         public List<LinkDetalhe> Link { get; set; }
         [XmlElement(ElementName = "description")]

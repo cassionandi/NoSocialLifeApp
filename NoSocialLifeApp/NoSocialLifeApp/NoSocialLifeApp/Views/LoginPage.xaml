@@ -5,14 +5,26 @@
     <StackLayout HorizontalOptions="Center"
                  VerticalOptions="CenterAndExpand">
 
+
+        <Image Source="{Binding UrlFBUserImage}" 
+               IsVisible="{Binding IsContinuarButtonVisible}"></Image>
+
+        <Button
+            Text="Continuar"
+            BackgroundColor="Red"
+            Command="{Binding ShowLoginCommand}"
+            IsVisible="{Binding IsContinuarButtonVisible}"
+            />
+
         <Label 
             Text="Entrar com redes sociais:"/>
-
+               
         <Button
             Text="Facebook"
             BackgroundColor="#3B5998"
             x:Name="LoginFBButton"
-            Command="{Binding ShowMainCommand}"
+            Command="{Binding ShowLoginCommand}"
+            IsVisible="{Binding IsFacebookButtonVisible}"
             />
 
         <Button 
@@ -23,7 +35,7 @@
                 />
 
         <Button 
-IsEnabled="False"
+            IsEnabled="False"
             Text="Twitter"
                 BackgroundColor="#0084B4"/>
 

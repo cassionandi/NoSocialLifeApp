@@ -11,7 +11,7 @@ namespace NoSocialLifeApp.Services
     public class AzureService
     {
 
-        static readonly string AppUrl = "https://maratonaxamarin-lab-4.azurewebsites.net";
+        static readonly string AppUrl = "https://nosociallifeapp.azurewebsites.net";
 
         public MobileServiceClient Client { get; set; } = null;
 

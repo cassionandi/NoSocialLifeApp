@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace NoSocialLifeApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PopularesPage : ContentPage
+    public partial class PopularesPage
     {
         private PopularesViewModel ViewModel => BindingContext as PopularesViewModel;
 

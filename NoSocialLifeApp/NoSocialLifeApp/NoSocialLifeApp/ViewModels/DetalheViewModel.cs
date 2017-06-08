@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NoSocialLifeApp.Models;
+using Xamarin.Forms;
 
 namespace NoSocialLifeApp.ViewModels
 {
 
     public class DetalheViewModel : BaseViewModel
     {
+
+        public Command ShowMaisCommand { get; }
 
         private string idItem;
 
@@ -26,14 +29,22 @@ namespace NoSocialLifeApp.ViewModels
         public DetalheViewModel(ItemLista item)
         {
 
+
+
             ItemSelecionado = new DetalheItem();
 
             Title = item.Nome.Value;
             idItem = item.Id;
 
+            ShowMaisCommand = new Command(ExecuteShowMaisCommand);
         }
 
-        public override async Task LoadAsync()
+        private async void ExecuteShowMaisCommand()
+        {
+            await PushModalAsync<MaisViewModel>(ItemSelecionado);
+        }
+
+    public override async Task LoadAsync()
         {
             var resultado = await BGGClient.GetItemDetalhe(idItem);
 

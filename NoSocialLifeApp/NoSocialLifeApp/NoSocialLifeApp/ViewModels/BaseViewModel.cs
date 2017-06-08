@@ -67,7 +67,36 @@ namespace NoSocialLifeApp.ViewModels
                 await Application.Current.MainPage.Navigation.PushAsync(page);
             }
 
-            public virtual Task LoadAsync()
+        public async Task PushModalAsync<TViewModel>(params object[] args) where TViewModel : BaseViewModel
+        {
+            var viewModelType = typeof(TViewModel);
+            var viewModelTypeName = viewModelType.Name;
+            var viewModelWordLength = "ViewModel".Length;
+            var viewTypeName = $"NoSocialLifeApp.Views.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}Page";
+            var viewType = Type.GetType(viewTypeName);
+
+            var page = Activator.CreateInstance(viewType) as Page;
+            /*
+             * Evita passar por parametro a instancia do .. Service entre os ViewModels
+             * 
+            if (viewModelType.GetTypeInfo().DeclaredConstructors.Any(c => c.GetParameters().Any(p => p.ParameterType == typeof(IMonkeyHubApiService))))
+            {
+                var argsList = args.ToList();
+                var monkeyHubApiService = DependencyService.Get<IMonkeyHubApiService>();
+                argsList.Insert(0, monkeyHubApiService);
+                args = argsList.ToArray();
+            }
+            */
+            var viewModel = Activator.CreateInstance(viewModelType, args);
+            if (page != null)
+            {
+                page.BindingContext = viewModel;
+            }
+
+            await Application.Current.MainPage.Navigation.PushModalAsync(page);
+        }
+
+        public virtual Task LoadAsync()
             {
                 return Task.FromResult(0);
             }
@@ -81,6 +110,17 @@ namespace NoSocialLifeApp.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
             }
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            // take a copy to prevent thread issues
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
+
+    }
 
 }
