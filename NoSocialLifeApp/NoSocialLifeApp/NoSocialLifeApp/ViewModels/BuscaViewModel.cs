@@ -32,6 +32,8 @@ namespace NoSocialLifeApp.ViewModels
 
         private async void ExecuteBuscaCommand(object obj)
         {
+
+            /*
             //Aqui ocorre a busca
             var resultado = new List<ItemLista>()
             {
@@ -66,6 +68,11 @@ namespace NoSocialLifeApp.ViewModels
                     }
                 }
             };
+            */
+
+            var resultado = await BGGClient.GetItems(QueryBusca);
+
+            //Lista.Clear();
 
             foreach (var itemResultado in resultado)
             {

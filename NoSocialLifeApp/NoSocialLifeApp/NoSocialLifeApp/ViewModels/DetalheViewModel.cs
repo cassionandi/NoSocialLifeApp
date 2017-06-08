@@ -11,21 +11,36 @@ namespace NoSocialLifeApp.ViewModels
     public class DetalheViewModel : BaseViewModel
     {
 
-        public DetalheItem ItemSelecionado { get; }
+        private string idItem;
 
-        public DetalheViewModel(ItemLista itemSelecionado)
+        private DetalheItem itemSelecionado;
+
+        public DetalheItem ItemSelecionado
+        {
+            get { return itemSelecionado; }
+            set {
+                SetProperty(ref itemSelecionado, value);
+            }
+        }
+
+        public DetalheViewModel(ItemLista item)
         {
 
-            //get full thing here
+            ItemSelecionado = new DetalheItem();
 
-            ItemSelecionado = new DetalheItem()
-            {
-                Descricao = "dadasdadas",
-                Imagem = "https://cf.geekdo-images.com/images/pic2823310_t.jpg"
-            };
+            Title = item.Nome.Value;
+            idItem = item.Id;
 
-            Title = ItemSelecionado.Descricao;
+        }
 
+        public override async Task LoadAsync()
+        {
+            var resultado = await BGGClient.GetItemDetalhe(idItem);
+
+            ItemSelecionado = resultado;
+
+            // ItemSelecionado.Descricao = "dsadasdsadas";
+            // ItemSelecionado.Imagem = "https://cf.geekdo-images.com/images/pic2823310_t.jpg";
         }
 
     }

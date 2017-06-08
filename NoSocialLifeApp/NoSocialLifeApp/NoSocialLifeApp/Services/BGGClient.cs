@@ -81,18 +81,18 @@ namespace NoSocialLifeApp
 
         }
 
-        public static async Task<RootDetalhe> GetItemDetalhe(int id)
+        public static async Task<DetalheItem> GetItemDetalhe(string id)
         {
             string RPG_ITEM = $"thing?id={id}";
             var xml = await GetURLContent(RPG_ITEM);
 
-            RootDetalhe obj = new RootDetalhe();
+            RootDetalhe resultado = new RootDetalhe();
 
             using (TextReader reader = new StringReader(xml))
             {
                 try
                 {
-                    obj = (RootDetalhe)new XmlSerializer(typeof(RootDetalhe)).Deserialize(reader);
+                    resultado = (RootDetalhe)new XmlSerializer(typeof(RootDetalhe)).Deserialize(reader);
                 }
                 catch (InvalidOperationException)
                 {
@@ -100,7 +100,7 @@ namespace NoSocialLifeApp
                 }
             }
 
-            return obj;
+            return resultado.Item;
         }
 
     }
