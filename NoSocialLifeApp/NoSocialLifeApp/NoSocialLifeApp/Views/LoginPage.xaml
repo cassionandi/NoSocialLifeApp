@@ -27,5 +27,7 @@ IsEnabled="False"
             Text="Twitter"
                 BackgroundColor="#0084B4"/>
 
+        <Label x:Name="TokenLabel"></Label>
+
     </StackLayout>
 </ContentPage>
