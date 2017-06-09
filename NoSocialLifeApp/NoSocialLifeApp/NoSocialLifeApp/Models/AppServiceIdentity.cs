@@ -30,38 +30,67 @@ namespace NoSocialLifeApp.Models
         public string val { get; set; }
     }
     */
+
+    /*
+public class UserClaim
+{
+
+    [JsonProperty("typ")]
+    public string typ { get; set; }
+
+    [JsonProperty("val")]
+    public string val { get; set; }
+}
+
+public class AppIdentity
+{
+
+    [JsonProperty("access_token")]
+    public string access_token { get; set; }
+
+    [JsonProperty("expires_on")]
+    public DateTime expires_on { get; set; }
+
+    [JsonProperty("provider_name")]
+    public string provider_name { get; set; }
+
+    [JsonProperty("user_claims")]
+    public IList<UserClaim> user_claims { get; set; }
+
+    [JsonProperty("user_id")]
+    public string user_id { get; set; }
+}
+
+public class RootObject
+{
+    public AppIdentity identity;
+}
+*/
+
+
+    public class AppServiceIdentity
+    {
+        [JsonProperty(PropertyName = "id_token")]
+        public string IdToken { get; set; }
+
+        [JsonProperty(PropertyName = "provider_name")]
+        public string ProviderName { get; set; }
+
+        [JsonProperty(PropertyName = "user_id")]
+        public string UserId { get; set; }
+
+        [JsonProperty(PropertyName = "user_claims")]
+        public List<UserClaim> UserClaims { get; set; }
+    }
+
     public class UserClaim
     {
+        [JsonProperty(PropertyName = "typ")]
+        public string Type { get; set; }
 
-        [JsonProperty("typ")]
-        public string typ { get; set; }
-
-        [JsonProperty("val")]
-        public string val { get; set; }
+        [JsonProperty(PropertyName = "val")]
+        public string Value { get; set; }
     }
 
-    public class AppIdentity
-    {
-
-        [JsonProperty("access_token")]
-        public string access_token { get; set; }
-
-        [JsonProperty("expires_on")]
-        public DateTime expires_on { get; set; }
-
-        [JsonProperty("provider_name")]
-        public string provider_name { get; set; }
-
-        [JsonProperty("user_claims")]
-        public IList<UserClaim> user_claims { get; set; }
-
-        [JsonProperty("user_id")]
-        public string user_id { get; set; }
-    }
-
-    public class RootObject
-    {
-        public AppIdentity identity;
-    }
 
 }

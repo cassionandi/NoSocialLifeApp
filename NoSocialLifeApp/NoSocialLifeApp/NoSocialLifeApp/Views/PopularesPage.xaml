@@ -4,9 +4,14 @@
              x:Class="NoSocialLifeApp.Views.PopularesPage"
              xmlns:base="clr-namespace:NoSocialLifeApp.Views;assembly=NoSocialLifeApp.Views"
              Title="{Binding Title}">
+
     <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"
+                           VerticalOptions="CenterAndExpand"/>
+
         <ListView
-            ItemsSource="{Binding Lista}"
+            ItemsSource="{Binding Lista}" 
             ItemSelected="ListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -18,5 +23,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </base:BasePage>

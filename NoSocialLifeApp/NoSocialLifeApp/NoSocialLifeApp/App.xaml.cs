@@ -17,33 +17,9 @@ namespace NoSocialLifeApp
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginPage());
-            /*
-            MainPage = new NavigationPage(new BuscaPage()
-            {
-                BindingContext = new BuscaViewModel()
-            }
-            );
-            */
-            /*
-            MainPage = new NavigationPage(new DetalhePage()
-            {
-                BindingContext = new DetalheViewModel(
-                     new ItemLista()
-                     {
-                         Id = "207609",
-                         Nome = new ItemNome()
-                         {
-                             Value = "Romance Trilogy"
-                         },
-                         AnoPublicacao = new ItemAnoPublicacao()
-                         {
-                             Value = "2016"
-                         }
-                         //Imagem = "https://cf.geekdo-images.com/images/pic2823310_t.jpg"
-                     }
-                 )
-            });
-            */
+           
+            //depois deve mudar pro MasterDetail
+
         }
 
         protected override void OnStart()

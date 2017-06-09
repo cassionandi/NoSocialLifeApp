@@ -13,7 +13,7 @@ namespace NoSocialLifeApp.Services
     {
 
         static string BASE_URL = "https://nosociallifeapp.azurewebsites.net/";
-
+        /*
         public static async Task<AppIdentity> GetIdentity(string token)
         {
             HttpClient client = new HttpClient();
@@ -27,22 +27,23 @@ namespace NoSocialLifeApp.Services
             HttpResponseMessage response = await client.GetAsync(".auth/me");
             var content = await response.Content.ReadAsStringAsync();
 
-            AppIdentity identity = new AppIdentity();
+            //AppIdentity identity = new AppIdentity();
+
 
             if (response.IsSuccessStatusCode)
             {
                 //var root = JsonConvert.DeserializeObject<AppIdentity>(content);
                 //identity = root[0].AppIdentity[0]. ;
 
-                var rootList = JsonConvert.DeserializeObject<List<RootObject>>(content);
+                //var root = JsonConvert.DeserializeObject<????>(content);
                 //JsonConvert.DeserializeObject<List<CustomerJson>>(json);
-                identity = rootList[0].identity;
+                //identity = rootList[0].identity;
             }
 
-            return identity;
+            return null;
         }
 
-
+    */
 
     }
 }

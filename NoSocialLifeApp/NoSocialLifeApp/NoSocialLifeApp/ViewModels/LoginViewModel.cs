@@ -14,15 +14,29 @@ namespace NoSocialLifeApp.ViewModels
     public class LoginViewModel : BaseViewModel
     {
 
+        private string nomeUsuario;
+
+        public string NomeUsuario
+        {
+            get { return nomeUsuario; }
+            set { SetProperty(ref nomeUsuario, value); }
+        }
+
+        private string urlFBUserImage;
+
         public string UrlFBUserImage
         {
             get
             {
-                return $"https://graph.facebook.com/{User?.UserId}/picture?type=large&hc_location=ufi";
+                return urlFBUserImage;
+            }
+            set
+            {
+                SetProperty(ref urlFBUserImage, value);
             }
         }
 
-        private AppIdentity identity;
+
 
         private MobileServiceUser user;
 
@@ -33,8 +47,6 @@ namespace NoSocialLifeApp.ViewModels
                 SetProperty(ref user, value);
                 RaisePropertyChanged("IsFacebookButtonVisible");
                 RaisePropertyChanged("IsContinuarButtonVisible");
-                RaisePropertyChanged("UrlFBUserImage");
-
             }
         }
 
@@ -46,6 +58,9 @@ namespace NoSocialLifeApp.ViewModels
 
         public LoginViewModel()
         {
+
+            Title = "Login";
+
             ShowLoginCommand = new Command(ExecuteLoginCommand);
 
             LogoutCommand = new Command(ExecuteLogoutCommand);
@@ -56,6 +71,11 @@ namespace NoSocialLifeApp.ViewModels
         private async void ExecuteShowMainCommand()
         {
             await PushAsync<MainViewModel>();
+
+            App.Current.MainPage.Navigation.RemovePage(App.Current.MainPage.Navigation.NavigationStack[App.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+
+            
+
         }
 
         private async void ExecuteLoginCommand()
@@ -63,7 +83,15 @@ namespace NoSocialLifeApp.ViewModels
             
             AzureService azureService = new AzureService();
             User = await azureService.LoginAsync();
-            identity = await FacebookClient.GetIdentity(User.MobileServiceAuthenticationToken);
+            var identity = await azureService.GetIdentityAsync();
+
+            var userId = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")).Value;
+
+            var nome = identity.UserClaims.FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")).Value;
+
+            UrlFBUserImage = $"https://graph.facebook.com/{userId}/picture?type=large&hc_location=ufi";
+
+            NomeUsuario = nome;
 
             Debug.WriteLine("#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ " + User.MobileServiceAuthenticationToken);
 

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoSocialLifeApp.Views.AgradecimentoPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <Label Text="Agradecimentos" FontSize="30" HorizontalOptions="Center"/>
+
+            <Label FontSize="20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Equipe MonkeyNights/Professores " ForegroundColor="#E51E25"  />
+                        <Span Text="Angelo Belchior, Alexandre Chohfi e William Rodriguez Pelo tempo e dedicação em preparar o excelente conteúdo e por serem os pilares dessa comunidade brasileira de desenvolvedores." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label FontSize="20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Unisul e Equipe " ForegroundColor="#E51E25" />
+                        <Span Text="Pelo incentivo e espaço cedidos para que eu pudesse estudar e me capacitar para os desafios." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label FontSize="20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Comunidade " ForegroundColor="#E51E25"  />
+                        <Span Text="Ao pessoal do grupo do Whatsapp, Facebook e Slack por tirar dúvidas e ajudar todos os participantes." />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

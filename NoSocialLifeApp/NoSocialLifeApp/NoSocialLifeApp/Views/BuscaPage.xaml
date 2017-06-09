@@ -10,7 +10,12 @@
                    Text="{Binding QueryBusca}"
                    />
             <Button Text="Buscar" Command="{Binding BuscaCommand}"/>
-            <ListView
+
+                <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"
+                           VerticalOptions="CenterAndExpand"/>
+
+
+                <ListView
             ItemsSource="{Binding Lista}"
             ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>

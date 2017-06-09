@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TelasMaratonaIntermediariaApp"
-             x:Class="NoSocialLifeApp.Views.MainPage">
+             x:Class="NoSocialLifeApp.Views.MainPage"
+             Title="{Binding Title}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agradecimentos" Command="{Binding ShowAgradecimentoCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout VerticalOptions="CenterAndExpand"
                  HorizontalOptions="Fill">
         <Button 

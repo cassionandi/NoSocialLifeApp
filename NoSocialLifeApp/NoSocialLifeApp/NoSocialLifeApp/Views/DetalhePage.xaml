@@ -11,22 +11,13 @@
     <ScrollView>
         <StackLayout VerticalOptions="Start" Padding="4">
 
-            <WebView VerticalOptions="FillAndExpand">
-                <WebView.Source>
-                    <HtmlWebViewSource Html="{Binding ItemSelecionado.Descricao}"/>
-                </WebView.Source>
-            </WebView>
+                <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"
+                           VerticalOptions="CenterAndExpand"/>
 
-
-            <Image Source="{Binding ItemSelecionado.Imagem}" HorizontalOptions="Center"/>
-
+                <Image Source="{Binding ItemSelecionado.Imagem}" HorizontalOptions="Center"/>
             
+                <Label Text="{Binding ItemSelecionado.Descricao}" />
             
-            <Label Text="{Binding ItemSelecionado.Descricao}" />
-
-            
-
-            <!--<Label Text="{Binding ItemSelecionado.AnoPublicacao.Value}" />-->
         </StackLayout>
     </ScrollView>
 </base:BasePage>

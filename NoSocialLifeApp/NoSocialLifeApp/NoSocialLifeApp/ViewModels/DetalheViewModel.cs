@@ -44,14 +44,19 @@ namespace NoSocialLifeApp.ViewModels
             await PushModalAsync<MaisViewModel>(ItemSelecionado);
         }
 
-    public override async Task LoadAsync()
+        public override async Task LoadAsync()
         {
-            var resultado = await BGGClient.GetItemDetalhe(idItem);
 
-            ItemSelecionado = resultado;
+            IsLoading = true;
+            if (ItemSelecionado?.Descricao == null)
+            {
+                var resultado = await BGGClient.GetItemDetalhe(idItem);
 
-            // ItemSelecionado.Descricao = "dsadasdsadas";
-            // ItemSelecionado.Imagem = "https://cf.geekdo-images.com/images/pic2823310_t.jpg";
+                ItemSelecionado = resultado;
+            }
+
+            IsLoading = false;
+
         }
 
     }

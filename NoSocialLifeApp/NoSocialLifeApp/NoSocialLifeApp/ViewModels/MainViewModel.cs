@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoSocialLifeApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace NoSocialLifeApp.ViewModels
 
         public Command ShowBuscaCommand { get; }
 
+        public Command ShowAgradecimentoCommand { get; }
+
         public MainViewModel()
         {
 
@@ -22,8 +25,15 @@ namespace NoSocialLifeApp.ViewModels
 
             ShowBuscaCommand = new Command(ExecuteBuscaCommand);
 
+            ShowAgradecimentoCommand = new Command(ExecuteShowAgradecimentoCommand);
+
             Title = "Início";
 
+        }
+
+        private async void ExecuteShowAgradecimentoCommand()
+        {
+            await App.Current.MainPage.Navigation.PushModalAsync(new AgradecimentoPage());
         }
 
         private async void ExecutePopularesCommand()

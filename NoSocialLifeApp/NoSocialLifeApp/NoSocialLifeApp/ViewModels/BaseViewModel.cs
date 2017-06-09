@@ -121,6 +121,17 @@ namespace NoSocialLifeApp.ViewModels
             }
         }
 
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                SetProperty(ref _isLoading, value);
+            }
+        }
+
     }
 
 }

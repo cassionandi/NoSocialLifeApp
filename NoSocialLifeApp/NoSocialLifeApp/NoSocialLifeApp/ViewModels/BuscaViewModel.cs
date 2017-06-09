@@ -69,7 +69,7 @@ namespace NoSocialLifeApp.ViewModels
                 }
             };
             */
-
+            IsLoading = true;
             var resultado = await BGGClient.GetItems(QueryBusca);
 
             //Lista.Clear();
@@ -78,6 +78,8 @@ namespace NoSocialLifeApp.ViewModels
             {
                 Lista.Add(itemResultado);
             }
+
+            IsLoading = false;
         }
 
         public Command BuscaCommand { get; }

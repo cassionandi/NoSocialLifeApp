@@ -53,6 +53,9 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MaisViewModel.cs" />
     <Compile Include="ViewModels\PopularesViewModel.cs" />
+    <Compile Include="Views\AgradecimentoPage.xaml.cs">
+      <DependentUpon>AgradecimentoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BasePage.cs" />
     <Compile Include="Views\BuscaPage.xaml.cs">
       <DependentUpon>BuscaPage.xaml</DependentUpon>
@@ -132,6 +135,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MaisPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AgradecimentoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

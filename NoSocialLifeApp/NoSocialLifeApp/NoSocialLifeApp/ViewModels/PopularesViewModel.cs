@@ -29,16 +29,19 @@ namespace NoSocialLifeApp.ViewModels
 
         public override async Task LoadAsync()
         {
+            IsLoading = true;
+            if (Lista.Count == 0) { 
+                Lista.Clear();
+                var resultado = await BGGClient.GetItems();
 
-            var resultado = await BGGClient.GetItems();
 
-            Lista.Clear();
 
-            foreach (var item in resultado)
-            {
-                Lista.Add(item);
+                foreach (var item in resultado)
+                {
+                    Lista.Add(item);
+                }
             }
-
+            IsLoading = false;
         }
 
         private async void ExecuteShowDetalheCommand(ItemLista obj)

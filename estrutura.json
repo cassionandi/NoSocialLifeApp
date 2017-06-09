@@ -1,0 +1,42 @@
+[
+  {
+    "access_token": "890183091890381908013980",
+    "expires_on": "2017-08-07T18:43:04.6960037Z",
+    "provider_name": "facebook",
+    "user_claims": [
+      {
+        "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+        "val": "23132131321321"
+      },
+      {
+        "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+        "val": "Nome do usuário aqui"
+      },
+      {
+        "typ": "urn:facebook:link",
+        "val": "https://www.facebook.com/app_scoped_user_id/31289381290830918132/"
+      },
+      {
+        "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+        "val": "Nome"
+      },
+      {
+        "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+        "val": "do Usuário aqui"
+      },
+      {
+        "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/gender",
+        "val": "male"
+      },
+      {
+        "typ": "urn:facebook:locale",
+        "val": "pt_BR"
+      },
+      {
+        "typ": "urn:facebook:timezone",
+        "val": "-3"
+      }
+    ],
+    "user_id": "Nome do Usuário aqui Denovo"
+  }
+]

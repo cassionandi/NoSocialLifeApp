@@ -33,8 +33,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <ContentView Padding="20, 0, 20, 0" BackgroundColor="#D6D6D6" HeightRequest="40">
-                                <Label Text="{Binding Tipo}" TextColor="#00518D" FontSize="Small"  VerticalTextAlignment="Center" />
+                            <ContentView Padding="20, 0, 20, 0" BackgroundColor="#E51E25" HeightRequest="40">
+                                <Label Text="{Binding Tipo}" TextColor="White" FontSize="Small"  VerticalTextAlignment="Center" />
                             </ContentView>
                         </ViewCell.View>
                     </ViewCell>
